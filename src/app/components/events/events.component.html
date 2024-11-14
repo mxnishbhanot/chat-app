@@ -1,0 +1,25 @@
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let event of events">
+    <ion-card-header>
+      <ion-card-title>{{ event.title }}</ion-card-title>
+      <ion-card-subtitle>{{ event.date | date:'medium' }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ event.description }}</p>
+      <p>
+        <ion-icon name="location"></ion-icon>
+        {{ event.location }}
+      </p>
+    </ion-card-content>
+
+      <ion-button color="primary" (click)="updateEvent(event)">Edit</ion-button>
+      <ion-button color="danger" (click)="deleteEvent(event)">Delete</ion-button>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createEvent()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
