@@ -6,7 +6,7 @@ import { SocketService } from '../../services/socket.service';
 import { MediaService } from '../../services/media.service';
 import { Message, ChatGroup } from '../../models/types';
 import { addIcons } from 'ionicons';
-import { attach, send } from 'ionicons/icons';
+import { attach, send, peopleOutline } from 'ionicons/icons';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class ChatComponent  implements OnInit {
     private socketService: SocketService,
     private mediaService: MediaService
   ) {
-    addIcons({ attach, send });
+    addIcons({ attach, send, peopleOutline });
   }
 
   ngOnInit() {
@@ -42,13 +42,13 @@ export class ChatComponent  implements OnInit {
         id: '1',
         name: 'Project Team',
         members: [],
-        avatar: 'assets/group1.jpg'
+        avatar: 'assets/group1.jpeg'
       },
       {
         id: '2',
         name: 'Family',
         members: [],
-        avatar: 'assets/group2.jpg'
+        avatar: 'assets/group1.jpeg'
       }
     ];
 
@@ -107,7 +107,7 @@ export class ChatComponent  implements OnInit {
   sendMessage() {
     if (this.newMessage.trim()) {
       this.socketService.sendMessage({
-        content: this.newMessage,
+        text: this.newMessage,
         type: 'text'
       });
       this.newMessage = '';

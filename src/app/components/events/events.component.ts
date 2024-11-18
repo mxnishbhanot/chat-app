@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { Event } from '../../models/types';
+import { addIcons } from 'ionicons';
+import { add, location } from 'ionicons/icons';
 
 @Component({
   selector: 'app-events',
@@ -11,6 +13,11 @@ import { Event } from '../../models/types';
   imports: [CommonModule, IonicModule],
 })
 export class EventsComponent  {
+
+  constructor(
+  ) {
+    addIcons({ add, location });
+  }
 
   events: Event[] = [
     {

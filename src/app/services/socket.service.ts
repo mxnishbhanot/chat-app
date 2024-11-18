@@ -22,8 +22,8 @@ export class SocketService {
       // Simulate message sending
       setTimeout(() => {
         this.mockSocket.next({
-          type: 'message',
-          content: message.content,
+          type: message.type,
+          text: message.text,
           timestamp: new Date(),
           sender: 'user123'
         });
